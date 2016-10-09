@@ -2,9 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>James Gardiner's Blog</title>
-    <description>Programming stuffs</description>
+    <description>Programming stuff</description>
     <link>https://jg075.github.io/</link>
     <atom:link href="https://jg075.github.io//feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>POOD: Chap 2</title>
+        
+        
+          <description>&lt;h3 id=&quot;topic&quot;&gt;Topic&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Sun, 09 Oct 2016 00:00:00 +0100</pubDate>
+        <link>https://jg075.github.io//2016/pood-chap-2/</link>
+        <guid isPermaLink="true">https://jg075.github.io//2016/pood-chap-2/</guid>
+      </item>
     
   </channel>
 </rss>
