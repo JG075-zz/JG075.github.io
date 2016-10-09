@@ -1,6 +1,6 @@
-name: Your New Jekyll Site
-description: Blogging about stuffs
-meta_description: "Your New Jekyll Site, Blogging about stuffs"
+name: James Gardiner's Blog
+description: Programming stuffs
+meta_description: "James Gardiner's blog about programming stuffs"
 
 aboutPage: true
 
@@ -10,15 +10,15 @@ highlighter: rouge
 gems: [jekyll-paginate]
 paginate: 20
 baseurl: /
-domain_name: 'http://yourblog-domain.com'
-google_analytics: 'UA-XXXXXXXX-X'
+domain_name: 'https://jg075.github.io/'
+google_analytics: 'UA-85411751-1'
 disqus: false
 disqus_shortname: 'your-disqus-shortname'
 
 # Details for the RSS feed generator
-url:            'http://your-blog-url.example.com'
-author:         'Your Name'
-authorTwitter:  'YourTwitterUsername'
+url:            'https://jg075.github.io/'
+author:         'James Gardiner'
+authorTwitter:  'JamesG075'
 
 permalink:       /:year/:title/
 

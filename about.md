@@ -4,6 +4,6 @@ permalink: about/
 profile: true
 ---
 
-This is a static page. It could be an 'about page' if you'd like.
+I'm currently a student at Makers Academy. I generally keep blog posts short and sweet for recaps on things I have learnt. Thanks for visiting! 
 
 {% include footer.html %}
