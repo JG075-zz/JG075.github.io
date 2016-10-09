@@ -1,0 +1,116 @@
+---
+title:  "POOD: Chap 2"
+description: Notes on Practical Object-Oriented Design In Ruby, Chapter 2
+date: 2016-10-09 13:51:00
+---
+
+### Topic ###
+
+Designing Classes with a Single Responsibility.
+
+### Summary ###
+
+Classes (and methods in classes) should have a single responsibility. That is they are only responsible for one thing e.g. a Gear class is responsible for everything pertaining to gears. This allows for easy changes.
+
+### Contents ###
+1. [TRUE Qualities](#true-qualities)
+2. [Hide Instance Variables](#hide-instance-variables)
+3. [Hide Data Structures](#hide-data-structures)
+4. [Extract Extra Responsibilities from Methods](#extract-extra-responsibilities-from-methods)
+5. [Isolate Extra Responsibilities in Classes](#isolate-extra-responsibilities-in-classes)
+
+### TRUE Qualities ###
+
+  - **Transparent:** The consequences of changing code should be obvious.
+  - **Reasonable:** The cost of changing code should be proportional to the benefits achieved.
+  - **Usable:** Code can be used in new and unexpected contexts.
+  - **Exemplary:** Encourage those that change it to perpetuate these qualities.
+
+### Hide Instance Variables ###
+
+Wrap instance variables in accessor methods instead of directly referencing them.
+
+{% highlight ruby %}
+class Gear
+  attr_reader :cog
+  def initialize(cog)
+    @cog = cog
+  end
+  def half
+    cog / 2
+  end
+end
+{% endhighlight %}
+
+If you ever want to change what Cog means, you can create a method like the one below.
+
+{% highlight ruby %}
+  def cog
+    @cog * (foo ? bar_adjustment : baz_adjustment)
+  end
+{% endhighlight %}
+
+### Hide Data Structures ###
+
+Use Struct.new when using complex data structures e.g. 2D arrays. This makes it clear what you are referencing and easy to adapt.
+
+{% highlight ruby %}
+Wheel = Struct.new(:rim, :tire)
+def wheelify(data)
+  data.collect {|cell|
+  Wheel.new(cell[0], cell[1])}
+end
+{% endhighlight %}
+
+### Extract Extra Responsibilities from Methods ###
+
+Allow methods to be responsible for one thing. A key sign is when you need to say "and".
+
+{% highlight ruby %}
+def diameters
+  wheels.collect {|wheel|
+  wheel.rim + (wheel.tire * 2)}
+end
+{% endhighlight %}
+
+The method above iterates over the wheels array and calculates the diameter of each wheel. This could be split up into two methods like below.
+
+{% highlight ruby %}
+# creates an array of diamters for each wheel
+def diameters
+  wheels.collet {|wheel| diameter(wheel)}
+end
+# works out the diameter for a single wheel
+def diameter(wheel)
+  wheel.rim + (wheel.tire * 2)
+end
+{% endhighlight %}
+
+### Isolate Extra Responsibilities in Classes ###
+
+You may have something that feels like it could go into a second class, but the program isn't big enough yet to warrant an additional class.
+
+In this case it is better to separate it in the existing class, so in the future you can very easily move it over to a new class when it makes sense.
+
+{% highlight ruby %}
+class Cog
+  # other cog methods omitted
+  def diameter
+    rim + (tire * 2)
+  end
+end
+{% endhighlight %}
+
+Calculating the diameter of a wheel doesn't seem like something a Cog class should do. So you can do something like the below for the time being.
+
+{% highlight ruby %}
+class Cog
+  # other cog methods omitted
+  Wheel = Struct.new(:rim, :tire) do
+    def diameter
+      rim + (tire * 2)
+    end
+  end
+  # You can now do @wheel = Wheel.new(rim, time), then @wheel.diameter
+end
+{% endhighlight %}
