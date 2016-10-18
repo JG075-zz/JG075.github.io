@@ -7,6 +7,19 @@
     <atom:link href="https://jg075.github.io//feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>CRUD and SQL</title>
+        
+        
+          <description>&lt;h3 id=&quot;crud&quot;&gt;CRUD&lt;/h3&gt;
+
+</description>
+        
+        <pubDate>Tue, 18 Oct 2016 00:00:00 +0100</pubDate>
+        <link>https://jg075.github.io//2016/crud-and-sql/</link>
+        <guid isPermaLink="true">https://jg075.github.io//2016/crud-and-sql/</guid>
+      </item>
+    
+      <item>
         <title>POOD: Chap 2</title>
         
         
